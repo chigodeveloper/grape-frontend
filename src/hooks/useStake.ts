@@ -4,15 +4,17 @@ import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync, updateUserStakedBalance, updateUserBalance } from 'state/actions'
 import { stake, sousStake, sousStakeBnb } from 'utils/callHelpers'
 import { useMasterchef, useSousChef } from './useContract'
+import { getReferrerAddress } from 'utils/addressHelpers'
 
 const useStake = (pid: number) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
+  const { referrer } = getReferrerAddress()
 
   const handleStake = useCallback(
     async (amount: string) => {
-      const referrer = '0x8845f7DDC881959ba1f366d024CAcdCf23E58b81';
+
       const txHash = await stake(masterChefContract, pid, amount, account, referrer)
       dispatch(fetchFarmUserDataAsync(account))
       console.info(txHash)
@@ -28,11 +30,12 @@ export const useSousStake = (sousId, isUsingBnb = false) => {
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
   const sousChefContract = useSousChef(sousId)
+  const { referrer } = getReferrerAddress()
 
   const handleStake = useCallback(
     async (amount: string) => {
       if (sousId === 0) {
-        await stake(masterChefContract, 0, amount, account)
+        await stake(masterChefContract, 0, amount, account, referrer)
       } else if (isUsingBnb) {
         await sousStakeBnb(sousChefContract, amount, account)
       } else {

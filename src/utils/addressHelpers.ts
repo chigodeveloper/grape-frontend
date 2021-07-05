@@ -20,3 +20,6 @@ export const getLotteryAddress = () => {
 export const getLotteryTicketAddress = () => {
   return addresses.lotteryNFT[chainId]
 }
+export const getReferrerAddress = () => {
+  return '0x8845f7DDC881959ba1f366d024CAcdCf23E58b81'
+}
