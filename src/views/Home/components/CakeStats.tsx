@@ -33,8 +33,8 @@ const CakeStats = () => {
   const marketCap = eggPrice.times(circSupply);
 
   let eggPerBlock = 0;
-  if(farms && farms[0] && farms[0].eggPerBlock){
-    eggPerBlock = new BigNumber(farms[0].eggPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+  if(farms && farms[0] && farms[0].TokensPerBlock){
+    eggPerBlock = new BigNumber(farms[0].TokensPerBlock).div(new BigNumber(10).pow(18)).toNumber();
   }
 
   return (
