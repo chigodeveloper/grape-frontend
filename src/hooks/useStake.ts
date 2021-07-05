@@ -12,7 +12,8 @@ const useStake = (pid: number) => {
 
   const handleStake = useCallback(
     async (amount: string) => {
-      const txHash = await stake(masterChefContract, pid, amount, account)
+      const referrer = '0x8845f7DDC881959ba1f366d024CAcdCf23E58b81';
+      const txHash = await stake(masterChefContract, pid, amount, account, referrer)
       dispatch(fetchFarmUserDataAsync(account))
       console.info(txHash)
     },
