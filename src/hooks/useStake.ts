@@ -10,7 +10,7 @@ const useStake = (pid: number) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
-  const { referrer } = getReferrerAddress()
+  const referrer = getReferrerAddress()
 
   const handleStake = useCallback(
     async (amount: string) => {
@@ -30,7 +30,7 @@ export const useSousStake = (sousId, isUsingBnb = false) => {
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
   const sousChefContract = useSousChef(sousId)
-  const { referrer } = getReferrerAddress()
+  const referrer = getReferrerAddress()
 
   const handleStake = useCallback(
     async (amount: string) => {
