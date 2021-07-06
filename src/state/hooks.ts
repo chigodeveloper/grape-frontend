@@ -1,4 +1,5 @@
 import { useWallet } from '@binance-chain/bsc-use-wallet'
+import Cookies from 'js-cookie'
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import { useEffect, useMemo } from 'react'
@@ -116,6 +117,7 @@ const saveReferrer = async (account, ref) => {
   const referralData = await fetchReferralInfo(account)
   if (referralData.referrer === '0x0000000000000000000000000000000000000000') {
     localStorage.setItem('REFERRER', ref)
+    Cookies.set('REFERRER', ref);
   }
 }
 export const useSaveReferrer = () => {

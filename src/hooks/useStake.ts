@@ -1,23 +1,40 @@
 import { useCallback } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useDispatch } from 'react-redux'
+import Cookies from 'js-cookie'
 import { fetchFarmUserDataAsync, updateUserStakedBalance, updateUserBalance } from 'state/actions'
 import { stake, sousStake, sousStakeBnb } from 'utils/callHelpers'
-import { getReferrerAddress } from 'utils/addressHelpers'
 import { useMasterchef, useSousChef } from './useContract'
+
+const EMPTY_ADDRESS = '0x0000000000000000000000000000000000000000'
+
+function getReferrer() {
+  const ref = localStorage.getItem('REFERRER')
+  const ref2 = Cookies.get('REFERRER');
+  if (ref) {
+    return ref
+  } else if (ref2){
+    return ref2
+  }
+  return EMPTY_ADDRESS
+}
 
 const useStake = (pid: number) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
-  const referrer = getReferrerAddress()
+
 
   const handleStake = useCallback(
     async (amount: string) => {
-
+      const referrer = getReferrer()
       const txHash = await stake(masterChefContract, pid, amount, account, referrer)
       dispatch(fetchFarmUserDataAsync(account))
       console.info(txHash)
+      if (referrer !== EMPTY_ADDRESS) {
+        localStorage.removeItem('REFERRER')
+        Cookies.remove('REFERRER');
+      }
     },
     [account, dispatch, masterChefContract, pid, referrer],
   )
