@@ -13,7 +13,7 @@ const TotalReferralCard = () => {
         <Heading size="xl" mb="24px">
           Total Referrals
         </Heading>
-        <Text bold>{referralsInfo.referralsCount}</Text>
+        <Text bold></Text>
       </CardBody>
     </StyledLotteryCard>
   )
