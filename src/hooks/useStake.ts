@@ -13,7 +13,8 @@ function getReferrer() {
   const ref2 = Cookies.get('REFERRER')
   if (ref) {
     return ref
-  } else if (ref2){
+  }
+  if (ref2){
     return ref2
   }
   return EMPTY_ADDRESS
@@ -33,7 +34,7 @@ const useStake = (pid: number) => {
       console.info(txHash)
       if (referrer !== EMPTY_ADDRESS) {
         localStorage.removeItem('REFERRER')
-        Cookies.remove('REFERRER');
+        Cookies.remove('REFERRER')
       }
     },
     [account, dispatch, masterChefContract, pid, referrer],
