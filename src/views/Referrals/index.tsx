@@ -63,7 +63,11 @@ const Referrals: React.FC = () => {
           <UnlockWalletCard />
         ) : (
           <div>
-          
+            <Cards>
+              <TotalReferralCard />
+              <TotalCommissionCard />
+            </Cards>
+            
           </div>
         )}
       </Page>
