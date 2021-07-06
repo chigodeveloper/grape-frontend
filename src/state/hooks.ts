@@ -117,7 +117,7 @@ const saveReferrer = async (account, ref) => {
   const referralData = await fetchReferralInfo(account)
   if (referralData.referrer === '0x0000000000000000000000000000000000000000') {
     localStorage.setItem('REFERRER', ref)
-    Cookies.set('REFERRER', ref);
+    Cookies.set('referral_code', ref);
   }
 }
 export const useSaveReferrer = () => {
