@@ -10,7 +10,7 @@ const EMPTY_ADDRESS = '0x0000000000000000000000000000000000000000'
 
 function getReferrer() {
   const ref = localStorage.getItem('REFERRER')
-  const ref2 = Cookies.get('REFERRER');
+  const ref2 = Cookies.get('REFERRER')
   if (ref) {
     return ref
   } else if (ref2){
