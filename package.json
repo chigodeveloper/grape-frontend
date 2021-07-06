@@ -41,6 +41,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.7",
     "bignumber.js": "^9.0.0",
+    "ethers": "^5.0.31",
     "chart.js": "^2.9.4",
     "iframe-resizer-react": "^1.1.0",
     "lodash": "^4.17.20",
