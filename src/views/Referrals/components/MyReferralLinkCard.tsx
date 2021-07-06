@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Flex } from '@pancakeswap-libs/uikit'
-import { useWeb3React } from '@web3-react/core'
+import { useWeb3React } from '@binance-chain/bsc-use-wallet'
 import CopyToClipboard from './CopyClipload'
 
 const StyledLotteryCard = styled(Card)``

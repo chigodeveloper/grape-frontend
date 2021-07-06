@@ -23,3 +23,7 @@ export const getLotteryTicketAddress = () => {
 export const getReferrerAddress = () => {
   return '0x8845f7DDC881959ba1f366d024CAcdCf23E58b81'
 }
+
+export const getReferralsAddress = () => {
+  return '0xE77Fa3ad1c586523A7EEd46e3cCa5b5378cCddD4'
+}
