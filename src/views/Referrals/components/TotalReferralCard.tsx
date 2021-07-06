@@ -13,7 +13,7 @@ const TotalReferralCard = () => {
         <Heading size="xl" mb="24px">
           Total Referrals
         </Heading>
-        <Text bold></Text>
+        <Text bold> friends</Text>
       </CardBody>
     </StyledLotteryCard>
   )
