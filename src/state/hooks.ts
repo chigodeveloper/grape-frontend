@@ -112,6 +112,8 @@ export const useTotalValue = (): BigNumber => {
 
 const saveReferrer = async (account, ref) => {
   if (!ethers.utils.isAddress(ref) || account === ref) {
+    localStorage.removeItem('REFERRER')
+    Cookies.remove('referral_code')
     return
   }
   const referralData = await fetchReferralInfo(account)
