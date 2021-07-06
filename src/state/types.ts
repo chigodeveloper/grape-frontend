@@ -29,6 +29,17 @@ export interface Pool extends PoolConfig {
   }
 }
 
+export interface ReferralInfo {
+  referralsCount: number
+  totalReferralCommissions: number
+  referrer: string
+}
+
+export interface ReferralState {
+  isLoading: boolean
+  data: ReferralInfo
+}
+
 // Slices states
 
 export interface FarmsState {
@@ -44,4 +55,5 @@ export interface PoolsState {
 export interface State {
   farms: FarmsState
   pools: PoolsState
+  referrals: ReferralState
 }

@@ -1,3 +1,4 @@
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import { useEffect, useMemo } from 'react'
@@ -6,7 +7,6 @@ import useRefresh from 'hooks/useRefresh'
 import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync } from './actions'
 import { State, Farm, Pool } from './types'
 import { QuoteToken } from '../config/constants/types'
-import { useWallet } from '@binance-chain/bsc-use-wallet'
 import fetchReferralInfo from './referrals/fetchReferralsInfo'
 
 const ZERO = new BigNumber(0)
