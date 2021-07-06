@@ -2,7 +2,6 @@ import { BaseLayout, Flex, Heading } from '@pancakeswap-libs/uikit'
 import { useWeb3React } from '@web3-react/core'
 import Page from 'components/layout/Page'
 import PageHeader from 'components/PageHeader'
-import { useTranslation } from 'contexts/Localization'
 import React, { useEffect } from 'react'
 import { useAppDispatch } from 'state'
 import { fetchReferralInfoAsync } from 'state/referrals'
@@ -36,7 +35,6 @@ const Cards = styled(BaseLayout)`
 `
 
 const Referrals: React.FC = () => {
-  const { t } = useTranslation()
   const { account } = useWeb3React()
   const dispatch = useAppDispatch()
 
@@ -52,10 +50,10 @@ const Referrals: React.FC = () => {
         <Flex justifyContent="space-between" flexDirection={['column', null, 'row']}>
           <Flex flexDirection="column" mr={['8px', 0]}>
             <Heading as="h1" size="xxl" color="secondary" mb="24px">
-              {t('Referrals')}
+              Referrals
             </Heading>
             <Heading size="md" color="text">
-              {t('Share the referral link below to invite your friends and earn 1% of your friends earnings FOREVER!')}
+              Share the referral link below to invite your friends and earn 1% of your friends earnings FOREVER!
             </Heading>
           </Flex>
         </Flex>

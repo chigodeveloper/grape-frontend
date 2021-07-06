@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody } from '@pancakeswap-libs/uikit'
-import { useTranslation } from 'contexts/Localization'
 import UnlockButton from 'components/UnlockButton'
 
 const StyledCardBody = styled(CardBody)`
@@ -17,7 +16,6 @@ const StyledHeading = styled(Heading)`
 `
 
 const UnlockWalletCard = () => {
-  const { t } = useTranslation()
 
   return (
     <Card isActive>
@@ -26,7 +24,7 @@ const UnlockWalletCard = () => {
           <Ticket />
         </IconWrapper> */}
         <div>
-          <StyledHeading size="md">{t('Unlock wallet to get your unique referral link')}</StyledHeading>
+          <StyledHeading size="md">Unlock wallet to get your unique referral link</StyledHeading>
           <UnlockButton />
         </div>
       </StyledCardBody>
