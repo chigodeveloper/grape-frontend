@@ -48,12 +48,11 @@ export const useSousStake = (sousId, isUsingBnb = false) => {
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
   const sousChefContract = useSousChef(sousId)
-  const referrer = getReferrerAddress()
 
   const handleStake = useCallback(
     async (amount: string) => {
       if (sousId === 0) {
-        await stake(masterChefContract, 0, amount, account, referrer)
+        await stake(masterChefContract, 0, amount, account, EMPTY_ADDRESS)
       } else if (isUsingBnb) {
         await sousStakeBnb(sousChefContract, amount, account)
       } else {
@@ -62,7 +61,7 @@ export const useSousStake = (sousId, isUsingBnb = false) => {
       dispatch(updateUserStakedBalance(sousId, account))
       dispatch(updateUserBalance(sousId, account))
     },
-    [account, dispatch, isUsingBnb, masterChefContract, sousChefContract, sousId, referrer],
+    [account, dispatch, isUsingBnb, masterChefContract, sousChefContract, sousId],
   )
 
   return { onStake: handleStake }
