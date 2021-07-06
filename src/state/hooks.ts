@@ -131,5 +131,5 @@ export const useSaveReferrer = () => {
 }
 
 export const useGetReferralInfo = () => {
-//  return useSelector((state: State) => state.referrals.data)
+  return useSelector((state: State) => state.referrals.data)
 }

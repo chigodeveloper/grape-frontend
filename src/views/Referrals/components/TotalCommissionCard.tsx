@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Heading, Card, CardBody, Text } from '@pancakeswap-libs/uikit'
 import { useGetReferralInfo } from 'state/hooks'
 
+
 const StyledLotteryCard = styled(Card)``
 
 const TotalCommissionCard = () => {

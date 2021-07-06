@@ -36,7 +36,7 @@ export interface ReferralInfo {
 }
 
 export interface ReferralState {
-  isLoading: boolean
+  isloading: boolean
   data: ReferralInfo
 }
 
