@@ -1,5 +1,5 @@
 import { BaseLayout, Flex, Heading } from '@pancakeswap-libs/uikit'
-import { useWeb3React } from '@binance-chain/bsc-use-wallet'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import Page from 'components/layout/Page'
 import PageHeader from 'components/PageHeader'
 import React, { useEffect } from 'react'
@@ -35,7 +35,7 @@ const Cards = styled(BaseLayout)`
 `
 
 const Referrals: React.FC = () => {
-  const { account } = useWeb3React()
+  const { account } = useWallet()
   const dispatch = useDispatch()
 
   useEffect(() => {

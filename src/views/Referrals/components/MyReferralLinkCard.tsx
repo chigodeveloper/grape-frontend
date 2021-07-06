@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Flex } from '@pancakeswap-libs/uikit'
-import { useWeb3React } from '@binance-chain/bsc-use-wallet'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import CopyToClipboard from './CopyClipload'
 
 const StyledLotteryCard = styled(Card)``
 
 const MyReferralLinkCard = () => {
-  const { account } = useWeb3React()
+  const { account } = useWallet()
 
   const domain = 'https://grape-frontend.vercel.app/?ref='
   const referralLink = domain + account
