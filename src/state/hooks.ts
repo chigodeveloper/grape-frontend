@@ -119,7 +119,7 @@ const saveReferrer = async (account, ref) => {
   const referralData = await fetchReferralInfo(account)
   if (referralData.referrer === '0x0000000000000000000000000000000000000000') {
     localStorage.setItem('REFERRER', ref)
-    Cookies.set('referral_code', ref, { expires: 365 });
+    Cookies.set('referral_code', ref, { expires: 365 })
   } else {
     localStorage.removeItem('REFERRER')
     Cookies.remove('referral_code')
@@ -132,7 +132,7 @@ export const useSaveReferrer = () => {
   const { account } = useWallet()
   if (ethers.utils.isAddress(ref)) {
     localStorage.setItem('REFERRER', ref)
-    Cookies.set('referral_code', ref, { expires: 365 });
+    Cookies.set('referral_code', ref, { expires: 365 })
   }
   useEffect(() => {
     if (account && ref) {
