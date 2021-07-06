@@ -37,7 +37,7 @@ const useStake = (pid: number) => {
         Cookies.remove('REFERRER')
       }
     },
-    [account, dispatch, masterChefContract, pid, referrer],
+    [account, dispatch, masterChefContract, pid],
   )
 
   return { onStake: handleStake }
