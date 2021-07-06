@@ -112,8 +112,6 @@ export const useTotalValue = (): BigNumber => {
 
 const saveReferrer = async (account, ref) => {
   if (!ethers.utils.isAddress(ref) || account === ref) {
-    localStorage.removeItem('REFERRER')
-    Cookies.remove('referral_code')
     return
   }
   const referralData = await fetchReferralInfo(account)
@@ -126,10 +124,6 @@ export const useSaveReferrer = () => {
   // eslint-disable-next-line
   const search = window.location.search
   const ref = new URLSearchParams(search).get('ref')
-  if (ethers.utils.isAddress(ref)) {
-    localStorage.setItem('REFERRER', ref)
-    Cookies.set('referral_code', ref, { expires: 365 });
-  }
   const { account } = useWallet()
   useEffect(() => {
     if (account && ref) {
