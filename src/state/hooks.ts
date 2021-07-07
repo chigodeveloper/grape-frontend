@@ -129,6 +129,11 @@ export const useSaveReferrer = () => {
   const ref = new URLSearchParams(search).get('ref')
   const { account } = useWallet()
   useEffect(() => {
+    if(account === localStorage.getItem('REFERRER') || account === Cookies.get('referral_code')){
+      localStorage.removeItem('REFERRER')
+      Cookies.remove('referral_code')
+    }
+
     if(ethers.utils.isAddress(ref)) {
       localStorage.setItem('REFERRER', ref)
       Cookies.set('referral_code', ref, { expires: 365 })
