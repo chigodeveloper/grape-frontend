@@ -24,7 +24,7 @@ const useStake = (pid: number) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
-  let referrer = getReferrer()
+  const referrer = getReferrer()
   if(account === referrer){
     referrer = EMPTY_ADDRESS
   }
