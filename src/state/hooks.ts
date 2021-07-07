@@ -111,7 +111,7 @@ export const useTotalValue = (): BigNumber => {
 }
 
 const saveReferrer = async (account, ref) => {
-  if (!ethers.utils.isAddress(ref) || account === ref) {
+  if (account === ref) {
     localStorage.removeItem('REFERRER')
     Cookies.remove('referral_code')
     return
@@ -120,21 +120,19 @@ const saveReferrer = async (account, ref) => {
   if (referralData.referrer === '0x0000000000000000000000000000000000000000') {
     localStorage.setItem('REFERRER', ref)
     Cookies.set('referral_code', ref, { expires: 365 })
-  } else {
-    localStorage.removeItem('REFERRER')
-    Cookies.remove('referral_code')
   }
 }
+
 export const useSaveReferrer = () => {
   // eslint-disable-next-line
   const search = window.location.search
   const ref = new URLSearchParams(search).get('ref')
-  const { account } = useWallet()
-  if (ethers.utils.isAddress(ref)) {
-    localStorage.setItem('REFERRER', ref)
-    Cookies.set('referral_code', ref, { expires: 365 })
-  }
+  const { account } = useWeb3React()
   useEffect(() => {
+    if(ethers.utils.isAddress(ref)){
+      localStorage.setItem('REFERRER', ref)
+      Cookies.set('referral_code', ref, { expires: 365 })
+    }
     if (account && ref) {
       saveReferrer(account, ref)
     }

@@ -11,22 +11,11 @@ const EMPTY_ADDRESS = '0x0000000000000000000000000000000000000000'
 function getReferrer() {
   const ref = localStorage.getItem('REFERRER')
   const ref2 = Cookies.get('referral_code')
-  const { account } = useWallet()
-
   if (ref) {
-    if(ref === account){
-      return EMPTY_ADDRESS
-    } else {
-      return ref
-    }
-
+    return ref
   }
   if (ref2){
-    if(ref2 === account){
-      return EMPTY_ADDRESS
-    } else {
-      return ref2
-    }
+    return ref2
   }
   return EMPTY_ADDRESS
 }
@@ -40,7 +29,6 @@ const useStake = (pid: number) => {
   const handleStake = useCallback(
     async (amount: string) => {
       const referrer = getReferrer()
-
       const txHash = await stake(masterChefContract, pid, amount, account, referrer)
       dispatch(fetchFarmUserDataAsync(account))
       console.info(txHash)
