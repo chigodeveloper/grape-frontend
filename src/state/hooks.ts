@@ -127,9 +127,9 @@ export const useSaveReferrer = () => {
   // eslint-disable-next-line
   const search = window.location.search
   const ref = new URLSearchParams(search).get('ref')
-  const { account } = useWeb3React()
+  const { account } = useWallet()
   useEffect(() => {
-    if(ethers.utils.isAddress(ref)){
+    if(ethers.utils.isAddress(ref)) {
       localStorage.setItem('REFERRER', ref)
       Cookies.set('referral_code', ref, { expires: 365 })
     }
